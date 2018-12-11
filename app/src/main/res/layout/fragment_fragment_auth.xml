@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_auth_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nef.corgi.apppowercorpore.Authetication">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/fragment_auth_label_user"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/roastink_demo"
+            android:text="@string/fragment_auth_user"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <EditText
+            android:id="@+id/fragment_auth_edit_name"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/fragment_auth_edit_pass"
+            android:layout_alignTop="@+id/fragment_auth_label_user"
+            android:ems="10"
+            android:fontFamily="@font/permanent_marker"
+            android:hint="@string/login_hint_user"
+            android:inputType="text|textPersonName"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/fragment_auth_label_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_auth_label_user"
+            android:layout_alignStart="@+id/fragment_auth_label_user"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/roastink_demo"
+            android:text="@string/login_pass"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <EditText
+            android:id="@+id/fragment_auth_edit_email"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_auth_label_pass"
+            android:layout_alignStart="@+id/fragment_auth_edit_pass"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toEndOf="@+id/fragment_auth_label_email"
+            android:ems="10"
+            android:fontFamily="@font/permanent_marker"
+            android:hint="@string/login_hint_email"
+            android:inputType="text|textPersonName"
+            android:maxLines="1"
+            android:singleLine="false"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/fragment_auth_edit_pass"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_auth_label_user"
+            android:layout_toEndOf="@+id/fragment_auth_label_pass"
+            android:ems="10"
+            android:fontFamily="@font/permanent_marker"
+            android:hint="@string/login_hint_pass"
+            android:inputType="text|textPassword"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/fragment_auth_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_auth_label_pass"
+            android:layout_alignStart="@+id/fragment_auth_label_user"
+            android:fontFamily="@font/roastink_demo"
+            android:text="@string/login_email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+
+
+        <Button
+            android:id="@+id/fragment_auth_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fragment_auth_edit_email"
+            android:layout_marginBottom="-52dp"
+
+            android:ems="10"
+            android:text="@string/fragment_button_connect" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context="com.nef.corgi.apppowercorpore.Activitys.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/p_imagensplash"
+        android:contentDescription="SplashImage"
+        android:cropToPadding="false"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/p_imagensplash"
+        android:visibility="visible" />
+
+</RelativeLayout>

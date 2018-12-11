@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Power Corpore</string>
+    <string name="fragment_auth_user">Name</string>
+    <string name="login_hint_user">User Name</string>
+    <string name="login_pass" translatable="false">"Password  "</string>
+    <string name="login_hint_pass">Password</string>
+    <string name="login_email">Email</string>
+    <string name="login_hint_email">Email</string>
+    <string name="fragment_button_connect">Sign In</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+    <string name="main_description">Welcome to</string>
+    <string name="mainactivity_fragmentepresent">Fragment active</string>
+    <string name="action_update">Update</string>
+    <string name="title_activity_service">ServiceActivity</string>
+    <string name="side_nav_bar">Lateral Menu</string>
+    <string name="nav_header_desc">Navegation</string>
+    <string name="nav_header_title">Header</string>
+    <string name="nav_header_subtitle">header_subtitle</string>
+    <string name="nav_send">Update</string>
+    <string name="nav_share">Share</string>
+    <string name="nav_user">Profile</string>
+    <string name="nav_work_out">Work Out</string>
+    <string name="nav_result">Result</string>
+    <string name="title_communicate">Comunicate</string>
+    <string name="main_connected">Connected</string>
+    <string name="main_progress">Progress</string>
+    <string name="main_connecting">Connecting</string>
+    <string name="fragment_auth_hello">Auteticando</string>
+    <string name="correct_log_process">"Welcome "</string>
+    <string name="http_code_error_4XX">Sorry, please try again</string>
+    <string name="http_code_error_5XX">Sorry, problem server, try in other moment</string>
+    <string name="Disconnected">You are disconnected</string>
+    <string name="Connect">Connect</string>
+    <string name="Bad_logging">Bad User name or Password try again</string>
+    <string name="Incorrect_Values">Incorrect user values, insert any</string>
+    <string name="UserRegistred">Previously registered</string>
+</resources>
