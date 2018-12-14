@@ -63,6 +63,7 @@ if(diaRutina.length()<0){
         return csv+FIN;
     }
 
+
     public class MalformedRutinaException extends Exception {
         private int type = 0;
         private static final int RUTINA_CORRECTA = 0;
@@ -132,6 +133,7 @@ if(diaRutina.length()<0){
              }
             return csvejercicio+FIN;
         }
+
     }
 
     }

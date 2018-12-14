@@ -64,8 +64,6 @@ public class ReadCSV {
                     //Lectura
                     n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
                     //se puede poner un verificador de longitud maxima por si acaso
-
-                    //  do {
                     for (int i = 1; i < items.length; i++){
                         try {
                             series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
@@ -76,10 +74,6 @@ public class ReadCSV {
                     repeticiones.add(items[i]);//esto es un string
                         j++;
                     }
-
-                //        } while (items[i]!="\n");
-                        //revisar el while xq no//deberia trocear hasta terminar toda la serie y repeticiones
-
                         try{
                             ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
                            ejercicio.setSerie(series);//introduce el array de series

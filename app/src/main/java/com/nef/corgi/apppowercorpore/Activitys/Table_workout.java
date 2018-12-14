@@ -58,12 +58,14 @@ public class Table_workout extends AppCompatActivity  {
             e.printStackTrace();
         }
 
-        for(int i=1;i<rutina.getListaEjercicios().size();i++){
+        RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
+        for(int i=0;i<rutina.getListaEjercicios().size();i++){
             final TableRow row_body = new TableRow(this);
             Date fecha=new Date();
             //String s_fecha = FORMATOFECHA.format(fecha);
             TextView nameexercise = new TextView(this);
-            nameexercise.setText(fecha.toString());
+            ejercicios=rutina.getListaEjercicios().get(i);
+            nameexercise.setText(ejercicios.getNombreEjercicio());
             nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
             row_body.addView(nameexercise);
             TextView texto = new TextView(this);
