@@ -35,21 +35,21 @@ public class Table_workout extends AppCompatActivity  {
         tableworkout = findViewById(R.id.tableworkout) ;
         tableworkout.setShrinkAllColumns(true);
         tableworkout.setShrinkAllColumns(true);
-        for(int i=0;i<5;i++){
-            final TableRow row_body = new TableRow(this);
-            Date fecha=new Date();
-            //String s_fecha = FORMATOFECHA.format(fecha);
-            TextView nameexercise = new TextView(this);
-            nameexercise.setText(fecha.toString());
-            nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
-            row_body.addView(nameexercise);
-            TextView texto = new TextView(this);
-            texto.setText("Texto");
-
-            row_body.addView(texto);
-            tableworkout.addView(row_body);
-        }
-       /* InputStream inputStream = getResources().openRawResource(R.raw.rutina_csv);
+//        for(int i=0;i<5;i++){
+//            final TableRow row_body = new TableRow(this);
+//            Date fecha=new Date();
+//            //String s_fecha = FORMATOFECHA.format(fecha);
+//            TextView nameexercise = new TextView(this);
+//            nameexercise.setText(fecha.toString());
+//            nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
+//            row_body.addView(nameexercise);
+//            TextView texto = new TextView(this);
+//            texto.setText("Texto");
+//
+//            row_body.addView(texto);
+//            tableworkout.addView(row_body);
+//        }
+        InputStream inputStream = getResources().openRawResource(R.raw.rutina_csv);
         ReadCSV readCSV=new ReadCSV();
         RutinaDTO rutina = new RutinaDTO();
         try {
@@ -71,7 +71,7 @@ public class Table_workout extends AppCompatActivity  {
 
             row_body.addView(texto);
             tableworkout.addView(row_body);
-        }*/
+        }
 
 
 

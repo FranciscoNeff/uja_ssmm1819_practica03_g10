@@ -49,8 +49,8 @@ public class ReadCSV {
             exist = true;
             String line = "";
             String n_ejercicios;//array con el nombre de los ejercicios
-            int[] series = new int[3];//array de series
-            String[] repeticiones = {};//array de repeticiones
+            ArrayList<Integer> series = new ArrayList<Integer>();//array de series
+            ArrayList<String> repeticiones = new ArrayList<String>();//array de repeticiones
             while ((line = reader.readLine()) != null) {
                 try {
 
@@ -60,26 +60,32 @@ public class ReadCSV {
                    String timerutina="TiempoRUTINA";
                     //int i = 2;
                     int i =0;
-int j=0;
+                    int j=0;
                         //Lectura
                         n_ejercicios = items[i];
                         i++;
                         do {
                             try{
-                            series[j] = (Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
+                            series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
                         }catch (NumberFormatException numberex){
                             numberex.printStackTrace();
                     }
                             i++;
-                            repeticiones[j] = items[i];//esto es un string
-                            i++;
-                            j++;
+                            repeticiones.add(items[i]);//esto es un string
+
+                            if (i>=items.length-1){i=items.length-1;}
+                            else{
+                                i++;
+                                j++;
+                            }
+
                         }
-                        while (Integer.parseInt(items[i]) != FIN); //deberia trocear hasta terminar toda la serie y repeticiones
+                        while (items[i]!="\n");
+                        //revisar el while xq no//deberia trocear hasta terminar toda la serie y repeticiones
                         i++;
                         try{
                             ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
-                            ejercicio.setSerie(series);//introduce el array de series
+                           ejercicio.setSerie(series);//introduce el array de series
                             ejercicio.setRepeticiones(repeticiones);//introduce el array de repeticiones
                             ejerciciolistcsv.add(ejercicio);
                             rutina = new RutinaDTO(s_f_rutina,timerutina,ejerciciolistcsv);

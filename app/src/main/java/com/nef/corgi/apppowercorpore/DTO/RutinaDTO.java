@@ -77,22 +77,22 @@ if(diaRutina.length()<0){
         }
     public static class Ejercicio extends RutinaDTO {
         private  String nombreEjercicio;
-        private  int[] serie;
-        private  String[] repeticiones;
+        private  ArrayList<Integer> serie;
+        private  ArrayList<String> repeticiones;
 
-        public int[] getSerie() {
+        public ArrayList<Integer> getSerie() {
             return serie;
         }
 
-        public void setSerie(int[] serie) {
+        public void setSerie(ArrayList<Integer> serie) {
             this.serie = serie;
         }
 
-        public String[] getRepeticiones() {
+        public ArrayList<String> getRepeticiones() {
             return repeticiones;
         }
 
-        public void setRepeticiones(String[] repeticiones) {
+        public void setRepeticiones(ArrayList<String> repeticiones) {
             this.repeticiones = repeticiones;
         }
 
@@ -106,29 +106,29 @@ if(diaRutina.length()<0){
         public Ejercicio(){
 
         }
-        public Ejercicio(String nombreEjercicio, int[] serie, String[] repeticiones) throws MalformedRutinaException {
-    super();
-            if (serie.length<0 ){// no deja ||serie=null
+
+
+        public Ejercicio( List<Ejercicio> listaEjercicios, String nombreEjercicio, ArrayList<Integer> serie, ArrayList<String> repeticiones) throws MalformedRutinaException {
+            super();
+            if (serie.size()<0 ){// no deja ||serie=null
                 throw new MalformedRutinaException(2);
             }
-            if (repeticiones.length<0 ){
+            if (repeticiones.size()<0 ){
                 throw new MalformedRutinaException(3);
             }
             if(nombreEjercicio.length()<3){
                 throw new MalformedRutinaException(3);
             }
             this.nombreEjercicio = nombreEjercicio;
-
             this.serie = serie;
-
             this.repeticiones = repeticiones;
         }
 
-
         public String csvtoStringEjercicio() {
             String csvejercicio= nombreEjercicio;
-             for (int i=0;i<serie.length;i++){
-              csvejercicio= DL +serie[i] +DL+ repeticiones[i];
+            csvejercicio= DL;
+            for (int i=0;i<serie.size();i++){
+                csvejercicio=csvejercicio +DL+ serie.get(i) +DL+ repeticiones.get(i);
              }
             return csvejercicio+FIN;
         }
