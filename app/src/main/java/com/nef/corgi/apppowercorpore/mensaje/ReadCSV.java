@@ -56,33 +56,30 @@ public class ReadCSV {
 
                     RutinaDTO.Ejercicio ejercicio = new RutinaDTO.Ejercicio();
                     String[] items = line.split(DL);//La cadena se trocea con ;
-                    String s_f_rutina="DIArutina";
-                   String timerutina="TiempoRUTINA";
+                    String s_f_rutina = "DIArutina";
+                    String timerutina = "TiempoRUTINA";
                     //int i = 2;
-                    int i =0;
-                    int j=0;
-                        //Lectura
-                        n_ejercicios = items[i];
-                        i++;
-                        do {
-                            try{
+
+                    int j = 0;
+                    //Lectura
+                    n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
+                    //se puede poner un verificador de longitud maxima por si acaso
+
+                    //  do {
+                    for (int i = 1; i < items.length; i++){
+                        try {
                             series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
-                        }catch (NumberFormatException numberex){
+                        } catch (NumberFormatException numberex) {
                             numberex.printStackTrace();
-                    }
-                            i++;
-                            repeticiones.add(items[i]);//esto es un string
-
-                            if (i>=items.length-1){i=items.length-1;}
-                            else{
-                                i++;
-                                j++;
-                            }
-
                         }
-                        while (items[i]!="\n");
+                    i++;
+                    repeticiones.add(items[i]);//esto es un string
+                        j++;
+                    }
+
+                //        } while (items[i]!="\n");
                         //revisar el while xq no//deberia trocear hasta terminar toda la serie y repeticiones
-                        i++;
+
                         try{
                             ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
                            ejercicio.setSerie(series);//introduce el array de series
