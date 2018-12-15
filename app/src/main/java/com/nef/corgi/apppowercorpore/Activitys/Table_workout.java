@@ -57,21 +57,39 @@ public class Table_workout extends AppCompatActivity  {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
+        final TableRow row_body = new TableRow(this);
+TextView headerview = new TextView(this);
+        String headertext = "Ejercicio   1   2   3";
+     //   for (int i=0;i<ejercicios.getSerie().size();i++){
+
+          //              headertext = headertext  + ejercicios.getSerie().get(i);
+
+       // }
+        headerview.setText(headertext);
+        headerview.setTextColor(getColor(R.color.colorAccent));
+        headerview.setTextSize(12);
+        row_body.addView(headerview);//se añade la cabecera
+        String rep="";
+        TextView nameexercise = new TextView(this);
+        TextView repeticiones = new TextView(this);
         for(int i=0;i<rutina.getListaEjercicios().size();i++){
-            final TableRow row_body = new TableRow(this);
+
             Date fecha=new Date();
             //String s_fecha = FORMATOFECHA.format(fecha);
-            TextView nameexercise = new TextView(this);
+            //Nombre del ejercicio
             ejercicios=rutina.getListaEjercicios().get(i);
             nameexercise.setText(ejercicios.getNombreEjercicio());
             nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
-            row_body.addView(nameexercise);
-            TextView texto = new TextView(this);
-            texto.setText("Texto");
+            row_body.addView(nameexercise);//se añade la lista de los ejercicios
 
-            row_body.addView(texto);
+
+            for(int j =0;j<ejercicios.getSerie().size();j++){
+                 rep=rep+ejercicios.getRepeticiones().get(j)+"  ";
+            }//aqui hay q investigar un tag para para meter el editor
+            repeticiones.setText(rep);
+            repeticiones.setTextColor(getColor(R.color.colorPrimary));
+            row_body.addView(repeticiones);//se añade la lista de las repeticiones
             tableworkout.addView(row_body);
         }
 

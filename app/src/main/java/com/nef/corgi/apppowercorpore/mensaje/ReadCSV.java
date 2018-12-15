@@ -46,6 +46,7 @@ public class ReadCSV {
             reader = new BufferedReader(new InputStreamReader(rutinacsv, Charset.forName("UTF-8")));
         RutinaDTO rutina = new RutinaDTO();
         if(reader!=null) {
+
             exist = true;
             String line = "";
             String n_ejercicios;//array con el nombre de los ejercicios
@@ -53,7 +54,8 @@ public class ReadCSV {
             ArrayList<String> repeticiones = new ArrayList<String>();//array de repeticiones
             while ((line = reader.readLine()) != null) {
                 try {
-
+                    repeticiones.clear();//limpiamos las repeticiones para el siguiente ejercicio
+                    series.clear();//limpiamos las series para el siguiente ejercicio
                     RutinaDTO.Ejercicio ejercicio = new RutinaDTO.Ejercicio();
                     String[] items = line.split(DL);//La cadena se trocea con ;
                     String s_f_rutina = "DIArutina";
@@ -65,6 +67,7 @@ public class ReadCSV {
                     n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
                     //se puede poner un verificador de longitud maxima por si acaso
                     for (int i = 1; i < items.length; i++){
+
                         try {
                             series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
                         } catch (NumberFormatException numberex) {
@@ -76,8 +79,10 @@ public class ReadCSV {
                     }
                         try{
                             ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
-                           ejercicio.setSerie(series);//introduce el array de series
+                            ejercicio.setSerie(series);//introduce el array de series //revisar porq introduce las series y repeticiones de todos
+
                             ejercicio.setRepeticiones(repeticiones);//introduce el array de repeticiones
+
                             ejerciciolistcsv.add(ejercicio);
                             rutina = new RutinaDTO(s_f_rutina,timerutina,ejerciciolistcsv);
                        //introduce la lista de ejercicios en la rutina
