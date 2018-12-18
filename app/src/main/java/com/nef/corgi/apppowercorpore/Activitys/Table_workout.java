@@ -58,7 +58,7 @@ public class Table_workout extends AppCompatActivity  {
             e.printStackTrace();
         }
         RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
-        final TableRow row_body = new TableRow(this);
+int j=0;
 TextView headerview = new TextView(this);
         String headertext = "Ejercicio   1   2   3";
      //   for (int i=0;i<ejercicios.getSerie().size();i++){
@@ -69,11 +69,15 @@ TextView headerview = new TextView(this);
         headerview.setText(headertext);
         headerview.setTextColor(getColor(R.color.colorAccent));
         headerview.setTextSize(12);
-        row_body.addView(headerview);//se añade la cabecera
+        //row_body.addView(headerview);//se añade la cabecera
         String rep="";
-        TextView nameexercise = new TextView(this);
-        TextView repeticiones = new TextView(this);
+
+
         for(int i=0;i<rutina.getListaEjercicios().size();i++){
+            rep="";
+            final TableRow row_body = new TableRow(this);
+            //String s_fecha = FORMATOFECHA.format(fecha);
+            TextView nameexercise = new TextView(this);
 
             Date fecha=new Date();
             //String s_fecha = FORMATOFECHA.format(fecha);
@@ -82,9 +86,10 @@ TextView headerview = new TextView(this);
             nameexercise.setText(ejercicios.getNombreEjercicio());
             nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
             row_body.addView(nameexercise);//se añade la lista de los ejercicios
-
-
-            for(int j =0;j<ejercicios.getSerie().size();j++){
+            //hasta aqui funciona
+            TextView repeticiones = new TextView(this);
+            int tam=j+ejercicios.getSerie().size();//se q es una chapuza, pero funciona
+            for(j =j;j<tam;j++){
                  rep=rep+ejercicios.getRepeticiones().get(j)+"  ";
             }//aqui hay q investigar un tag para para meter el editor
             repeticiones.setText(rep);
