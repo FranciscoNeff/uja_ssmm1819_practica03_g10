@@ -25,8 +25,8 @@ public class Table_workout extends AppCompatActivity  {
 //    private TextView title = (TextView) findViewById(R.id.row_text_title);
 //    private TextView header= (TextView) findViewById(R.id.row_text_header);
 //    private TextView text_body=(TextView)findViewById(R.id.row_text_body);
-//    //TODO tabla dinamica para los ejercicios
-    //TODO tabla dinamica a traves de un XML(Investigar)
+//    //TODO tabla dinamica para los ejercicios tag para el editor
+   //TODO darle estilos a la tabla
 
     @Override
     public void onCreate (Bundle savedInstanteState){
@@ -59,18 +59,25 @@ public class Table_workout extends AppCompatActivity  {
         }
         RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
 int j=0;
-TextView headerview = new TextView(this);
-        String headertext = "Ejercicio   1   2   3";
-     //   for (int i=0;i<ejercicios.getSerie().size();i++){
-
-          //              headertext = headertext  + ejercicios.getSerie().get(i);
-
-       // }
+        ejercicios=rutina.getListaEjercicios().get(1);
+        final TableRow row_header = new TableRow(this);
+        TextView headerview = new TextView(this);
+        String headertext = "Nombre";
         headerview.setText(headertext);
         headerview.setTextColor(getColor(R.color.colorAccent));
-        headerview.setTextSize(12);
-        //row_body.addView(headerview);//se añade la cabecera
-        String rep="";
+        headerview.setTextSize(14);
+        row_header.addView(headerview);//se añade la cabecera
+String header_series="";
+        for (int i=0;i<ejercicios.getSerie().size();i++){
+                        header_series =" "+ header_series+ejercicios.getSerie().get(i)+"    ";
+        }
+        TextView seriesView = new TextView(this);
+        seriesView.setText(header_series);
+        seriesView.setTextColor(getColor(R.color.colorAccent));
+        seriesView.setTextSize(14);
+        row_header.addView(seriesView);//se añade la cabecera
+        tableworkout.addView(row_header);
+        String rep="   ";
 
 
         for(int i=0;i<rutina.getListaEjercicios().size();i++){
@@ -90,7 +97,7 @@ TextView headerview = new TextView(this);
             TextView repeticiones = new TextView(this);
             int tam=j+ejercicios.getSerie().size();//se q es una chapuza, pero funciona
             for(j =j;j<tam;j++){
-                 rep=rep+ejercicios.getRepeticiones().get(j)+"  ";
+                 rep=" "+rep+ejercicios.getRepeticiones().get(j)+"  ";
             }//aqui hay q investigar un tag para para meter el editor
             repeticiones.setText(rep);
             repeticiones.setTextColor(getColor(R.color.colorPrimary));

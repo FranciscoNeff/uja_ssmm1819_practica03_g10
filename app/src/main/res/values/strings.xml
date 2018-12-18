@@ -12,7 +12,6 @@
     <string name="main_description">Welcome to</string>
     <string name="mainactivity_fragmentepresent">Fragment active</string>
     <string name="action_update">Update</string>
-    <string name="title_activity_service">ServiceActivity</string>
     <string name="side_nav_bar">Lateral Menu</string>
     <string name="nav_header_desc">Navegation</string>
     <string name="nav_header_title">Header</string>
@@ -35,4 +34,5 @@
     <string name="Bad_logging">Bad User name or Password try again</string>
     <string name="Incorrect_Values">Incorrect user values, insert any</string>
     <string name="UserRegistred">Previously registered</string>
+    <string name="title_activity_service">Power Corpore</string>
 </resources>
