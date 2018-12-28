@@ -61,16 +61,15 @@ public class ReadCSV {
            // rutina = new RutinaDTO(s_f_rutina, timerutina, ejerciciolistcsv);
             while ((line = reader.readLine()) != null) {
                 try {
-
                     //repeticiones.clear();//limpiamos las repeticiones para el siguiente ejercicio
                     series.clear();//limpiamos las series para el siguiente ejercicio
                     RutinaDTO.Ejercicio ejercicio = new RutinaDTO.Ejercicio();
                     String[] items = line.split(DL);//La cadena se trocea con ;
                     String s_f_rutina = "DIArutina";
                     String timerutina = "TiempoRUTINA";
-                    //int i = 2;
 
-                    int j = 0;
+
+
                     //Lectura
                     n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
                     //se puede poner un verificador de longitud maxima por si acaso
@@ -83,9 +82,9 @@ public class ReadCSV {
                         }
                         i++;
                         repeticiones.add(items[i]);//esto es un string
-                       // j++;
+
                     }
-                 //   try {
+
                         ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
                         ejercicio.setSerie(series);//introduce el array de series //revisar porq introduce las series y repeticiones de todos
                         ejercicio.setRepeticiones(repeticiones);//introduce el array de repeticiones
@@ -96,10 +95,7 @@ public class ReadCSV {
                         //introduce la lista de ejercicios en la rutina
                         //introduce la fecha que el dia realiza la rutina
                         //introcude el timestamp de la rutina
-                   /* } catch (RutinaDTO.MalformedRutinaException e) {
-                        e.printStackTrace();
-                        rutina = null;
-                    }*/
+
 
                 } catch (NullPointerException e) {//Tengo que poner el nullPointerException ya que con las demas excepciones da fallo
                     // ya que debido al metodo pide devolver un objeto

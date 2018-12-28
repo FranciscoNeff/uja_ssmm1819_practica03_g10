@@ -43,15 +43,13 @@ Registros reg = new Registros();
         setContentView(R.layout.activity_service);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // registros = reg.ReadRegistro();
+
         //botón flotante
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-              /*  Snackbar.make(view, registros, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();//añadir accion(futuro)*///linea para el apartado opcional
                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();//añadir accion(futuro)
             }

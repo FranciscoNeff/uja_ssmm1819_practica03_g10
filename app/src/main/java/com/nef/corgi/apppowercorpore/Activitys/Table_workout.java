@@ -16,16 +16,8 @@ import java.util.List;
 
 public class Table_workout extends AppCompatActivity  {
     private List<RutinaDTO> rutinalistcsv = new ArrayList<>();
-
-    //SimpleDateFormat FORMATOFECHA = new SimpleDateFormat("DD/MM/AAAA", Locale.getDefault());
     private TableLayout tableworkout =null;
-//    private TableRow row_title=(TableRow)findViewById(R.id.row_title);
-//    private TableRow row_header=(TableRow)findViewById(R.id.row_header);
-//    private TableRow row_body=(TableRow)findViewById(R.id.row_body);
-//    private TextView title = (TextView) findViewById(R.id.row_text_title);
-//    private TextView header= (TextView) findViewById(R.id.row_text_header);
-//    private TextView text_body=(TextView)findViewById(R.id.row_text_body);
-//    //TODO tabla dinamica para los ejercicios tag para el editor
+    //TODO tabla dinamica para los ejercicios tag para el editor
    //TODO darle estilos a la tabla
 
     @Override
@@ -35,20 +27,6 @@ public class Table_workout extends AppCompatActivity  {
         tableworkout = findViewById(R.id.tableworkout) ;
         tableworkout.setShrinkAllColumns(true);
         tableworkout.setShrinkAllColumns(true);
-//        for(int i=0;i<5;i++){
-//            final TableRow row_body = new TableRow(this);
-//            Date fecha=new Date();
-//            //String s_fecha = FORMATOFECHA.format(fecha);
-//            TextView nameexercise = new TextView(this);
-//            nameexercise.setText(fecha.toString());
-//            nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
-//            row_body.addView(nameexercise);
-//            TextView texto = new TextView(this);
-//            texto.setText("Texto");
-//
-//            row_body.addView(texto);
-//            tableworkout.addView(row_body);
-//        }
         InputStream inputStream = getResources().openRawResource(R.raw.rutina_csv);
         ReadCSV readCSV=new ReadCSV();
         RutinaDTO rutina = new RutinaDTO();
@@ -58,115 +36,57 @@ public class Table_workout extends AppCompatActivity  {
             e.printStackTrace();
         }
         RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
-int j=0;
         ejercicios=rutina.getListaEjercicios().get(1);
         final TableRow row_header = new TableRow(this);
+        row_header.setId(R.id.id_row_header);
         TextView headerview = new TextView(this);
         String headertext = "Nombre";
         headerview.setText(headertext);
         headerview.setTextColor(getColor(R.color.colorAccent));
-        headerview.setTextSize(14);
+        headerview.setTextSize(22);
         row_header.addView(headerview);//se añade la cabecera
 String header_series="";
         for (int i=0;i<ejercicios.getSerie().size();i++){
-                        header_series =" "+ header_series+ejercicios.getSerie().get(i)+"    ";
+                        header_series ="   "+ header_series+ejercicios.getSerie().get(i)+"       ";
         }
         TextView seriesView = new TextView(this);
         seriesView.setText(header_series);
         seriesView.setTextColor(getColor(R.color.colorAccent));
-        seriesView.setTextSize(14);
+        seriesView.setTextSize(22);
+        row_header.setBackgroundColor(getColor(R.color.colorPrimary));
         row_header.addView(seriesView);//se añade la cabecera
         tableworkout.addView(row_header);
         String rep="   ";
 
-
+        int j=0;
         for(int i=0;i<rutina.getListaEjercicios().size();i++){
-            rep="";
             final TableRow row_body = new TableRow(this);
-            //String s_fecha = FORMATOFECHA.format(fecha);
+            rep="";
             TextView nameexercise = new TextView(this);
-
-            Date fecha=new Date();
-            //String s_fecha = FORMATOFECHA.format(fecha);
             //Nombre del ejercicio
             ejercicios=rutina.getListaEjercicios().get(i);
             nameexercise.setText(ejercicios.getNombreEjercicio());
             nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
+            nameexercise.setTextSize(19);
             row_body.addView(nameexercise);//se añade la lista de los ejercicios
             //hasta aqui funciona
             TextView repeticiones = new TextView(this);
             int tam=j+ejercicios.getSerie().size();//se q es una chapuza, pero funciona
             for(j =j;j<tam;j++){
-                 rep=" "+rep+ejercicios.getRepeticiones().get(j)+"  ";
+                 rep="    "+rep+ejercicios.getRepeticiones().get(j)+"     ";
             }//aqui hay q investigar un tag para para meter el editor
             repeticiones.setText(rep);
+            repeticiones.setTextSize(19);
             repeticiones.setTextColor(getColor(R.color.colorPrimary));
             row_body.addView(repeticiones);//se añade la lista de las repeticiones
+            if(i%2==0){
+            row_body.setBackgroundColor(getColor(R.color.colorendgradient));
+            }else{
+                row_body.setBackgroundColor(getColor(R.color.colorAccent));
+            }
             tableworkout.addView(row_body);
+            row_body.setId(R.id.id_row_body);
         }
 
-
-
-//        rutinaDTO rutine = new rutinaDTO();
-//        String[] ejercicios={};
-//        String[] repeticiones={};
-//        int Nseries=rutine.getSerie().length;
-//        String[] head={};
-//        for(int i=0; i < (rutinalistCSV.size()) ; i++){
-//            rutine=rutinalistCSV.get(i);
-//            if (rutine.getNombreEjercicio()[0]=="Ejercicio")
-//            { head[0]=rutine.getNombreEjercicio()[0]; }
-//        }//primera parte cabecera
-//        Nseries=rutine.getSerie().length;
-//        for(int i=0;i<Nseries+1;i++){
-//        head[i+1]="Serie"+(i+1);
-//        }//segunda parte cabecera
-//        String[] body={};
-//        //Ejercicio y numero de series
-//        //Todo introducir el head
-//        //Cuerpo de la rutina
-//        for(int i=1;i<(rutinalistCSV.size());i++){
-//            rutine=rutinalistCSV.get(i);
-//            ejercicios[i]= rutine.getNombreEjercicio()[i];
-//            for(int j=1; j< Nseries;j++){
-//                repeticiones[j]=rutine.getRepeticiones()[j];
-//            }
-//        }
-//        ejercicios[0]=head[0];
-//
-//        for(int i = 0;i< (ejercicios.length); i++ ){
-//            body[i]=ejercicios[i];
-//            for(int j=0;j<Nseries;j++){
-//                body[i]=body[i]+repeticiones[j];
-//            }
-//        }
-
-       /* String tabla={};
-                tabla = head+body;*/
-        //CSVReader csvreader = new CSVReader(new FileReader(R.raw.rutina_csv)';');//no funciona
-        //Creacion de la tabla
-        //Titulo de la columna
-
-  //      rutine.setDiaRutina(s_fecha);
-
-        //TODO tabla dinamica de las series (cabecera)
-//        for(int i=0;i<rutine.getSerie().length;i++){
-//            header.setText(head[i]);
-//        }
-//        row_header.addView(header);
-//        tableworkout.addView(row_header);
-//        //TODO tabla dinamica filas de ejercicios
-//            String[] filas={};
-//        for (int i=0;i<body.length ;i++) {
-//            for(int j=0;j<Nseries;j++) {
-//                filas[i] =filas[i]+body[j];//lectura de una fila con nombre mas repeticiones
-//                text_body.setText(filas[i]);
-//                row_body.addView(text_body);
-//                tableworkout.addView(row_body);
-//
-//            }
-
-///Revisar xq esto peta tela
- //       }
     }
 }
