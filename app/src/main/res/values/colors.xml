@@ -5,4 +5,7 @@
     <color name="colorAccent">#000000</color>
     <color name="colorendgradient">#b12668f7</color>
     <color name="colormidgradient">#7c504eb6</color>
+    <color name="rowbodyimpar">#2e0767a3</color>
+    <color name="rowbodypar">#ad54bdff</color>
+    <color name="textrep">#0067a7</color>
 </resources>

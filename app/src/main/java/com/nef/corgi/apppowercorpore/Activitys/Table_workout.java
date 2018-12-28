@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toolbar;
+
 import com.nef.corgi.apppowercorpore.DTO.RutinaDTO;
 import com.nef.corgi.apppowercorpore.R;
 import com.nef.corgi.apppowercorpore.mensaje.ReadCSV;
@@ -19,12 +21,15 @@ public class Table_workout extends AppCompatActivity  {
     private TableLayout tableworkout =null;
     //TODO tabla dinamica para los ejercicios tag para el editor
    //TODO darle estilos a la tabla
-
+//TODO revisar lo de la toolbar
     @Override
     public void onCreate (Bundle savedInstanteState){
         super.onCreate(savedInstanteState);
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setTitle(R.string.title_activity_workout);
+
         setContentView(R.layout.layout_show_workouts);
-        tableworkout = findViewById(R.id.tableworkout) ;
+        tableworkout = findViewById(R.id.tableworkout);
         tableworkout.setShrinkAllColumns(true);
         tableworkout.setShrinkAllColumns(true);
         InputStream inputStream = getResources().openRawResource(R.raw.rutina_csv);
@@ -40,20 +45,21 @@ public class Table_workout extends AppCompatActivity  {
         final TableRow row_header = new TableRow(this);
         row_header.setId(R.id.id_row_header);
         TextView headerview = new TextView(this);
-        String headertext = "Nombre";
+        String headertext = "Ejercicio";
         headerview.setText(headertext);
         headerview.setTextColor(getColor(R.color.colorAccent));
         headerview.setTextSize(22);
         row_header.addView(headerview);//se añade la cabecera
-String header_series="";
+        String header_series="";
         for (int i=0;i<ejercicios.getSerie().size();i++){
-                        header_series ="   "+ header_series+ejercicios.getSerie().get(i)+"       ";
+                        header_series =" "+ header_series+"Serie "+(i+1)+"  ";
         }
         TextView seriesView = new TextView(this);
         seriesView.setText(header_series);
         seriesView.setTextColor(getColor(R.color.colorAccent));
         seriesView.setTextSize(22);
         row_header.setBackgroundColor(getColor(R.color.colorPrimary));
+
         row_header.addView(seriesView);//se añade la cabecera
         tableworkout.addView(row_header);
         String rep="   ";
@@ -73,16 +79,16 @@ String header_series="";
             TextView repeticiones = new TextView(this);
             int tam=j+ejercicios.getSerie().size();//se q es una chapuza, pero funciona
             for(j =j;j<tam;j++){
-                 rep="    "+rep+ejercicios.getRepeticiones().get(j)+"     ";
+                 rep="   "+rep+ejercicios.getRepeticiones().get(j)+"            ";
             }//aqui hay q investigar un tag para para meter el editor
             repeticiones.setText(rep);
             repeticiones.setTextSize(19);
-            repeticiones.setTextColor(getColor(R.color.colorPrimary));
+            repeticiones.setTextColor(getColor(R.color.textrep));
             row_body.addView(repeticiones);//se añade la lista de las repeticiones
             if(i%2==0){
-            row_body.setBackgroundColor(getColor(R.color.colorendgradient));
+                row_body.setBackgroundColor(getColor(R.color.rowbodyimpar));
             }else{
-                row_body.setBackgroundColor(getColor(R.color.colorAccent));
+                row_body.setBackgroundColor(getColor(R.color.rowbodypar));
             }
             tableworkout.addView(row_body);
             row_body.setId(R.id.id_row_body);

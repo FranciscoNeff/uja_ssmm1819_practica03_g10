@@ -35,5 +35,5 @@
     <string name="Incorrect_Values">Incorrect user values, insert any</string>
     <string name="UserRegistred">Previously registered</string>
     <string name="title_activity_service">Power Corpore</string>
-    <string name="workout"> Workout</string>
+    <string name="title_activity_workout"> Workout</string>
 </resources>
