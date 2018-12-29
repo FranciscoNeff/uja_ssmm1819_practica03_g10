@@ -36,4 +36,6 @@
     <string name="UserRegistred">Previously registered</string>
     <string name="title_activity_service">Power Corpore</string>
     <string name="title_activity_workout"> Workout</string>
+    <string name="workout_toggle_off">Finish Workout</string>
+    <string name="workout_toggle_on">Start Workout</string>
 </resources>

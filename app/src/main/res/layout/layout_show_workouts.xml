@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color_workout"
     tools:context="com.nef.corgi.apppowercorpore.Activitys.Table_workout">
 
     <TableLayout
@@ -11,11 +13,25 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="56dp">
 
         <TableRow android:id="@+id/id_row_header"></TableRow>
 
         <TableRow android:id="@+id/id_row_body"></TableRow>
     </TableLayout>
+
+    <ToggleButton
+        android:id="@+id/workout_BtnToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="8dp"
+        android:textOn="@string/workout_toggle_on"
+        android:textOff="@string/workout_toggle_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

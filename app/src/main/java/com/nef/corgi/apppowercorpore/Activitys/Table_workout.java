@@ -1,9 +1,12 @@
 package com.nef.corgi.apppowercorpore.Activitys;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import android.widget.Toolbar;
 
 import com.nef.corgi.apppowercorpore.DTO.RutinaDTO;
@@ -19,6 +22,7 @@ import java.util.List;
 public class Table_workout extends AppCompatActivity  {
     private List<RutinaDTO> rutinalistcsv = new ArrayList<>();
     private TableLayout tableworkout =null;
+
     //TODO tabla dinamica para los ejercicios tag para el editor
    //TODO darle estilos a la tabla
 //TODO revisar lo de la toolbar
@@ -26,8 +30,20 @@ public class Table_workout extends AppCompatActivity  {
     public void onCreate (Bundle savedInstanteState){
         super.onCreate(savedInstanteState);
         Toolbar toolbar = new Toolbar(this);
+        //toolbar.setId(R.id.toolbar_workout);
         toolbar.setTitle(R.string.title_activity_workout);
+       final ToggleButton btnToggle = (ToggleButton) findViewById(R.id.workout_BtnToggle);
 
+       /* btnToggle.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View arg0)
+            {
+                if(btnToggle.isChecked())
+                    btnToggle.getTextOn();
+
+                else
+                    btnToggle.getTextOff();
+            }
+        });*/
         setContentView(R.layout.layout_show_workouts);
         tableworkout = findViewById(R.id.tableworkout);
         tableworkout.setShrinkAllColumns(true);
@@ -75,7 +91,6 @@ public class Table_workout extends AppCompatActivity  {
             nameexercise.setTextColor(getColor(R.color.colorPrimaryDark));
             nameexercise.setTextSize(19);
             row_body.addView(nameexercise);//se añade la lista de los ejercicios
-            //hasta aqui funciona
             TextView repeticiones = new TextView(this);
             int tam=j+ejercicios.getSerie().size();//se q es una chapuza, pero funciona
             for(j =j;j<tam;j++){
@@ -93,6 +108,7 @@ public class Table_workout extends AppCompatActivity  {
             tableworkout.addView(row_body);
             row_body.setId(R.id.id_row_body);
         }
-
+//TODO seria interesante en un futuro cambiar solo el tooglebutton con un cronometro ademas y un boton de pause
+        //https://www.youtube.com/watch?v=GCrgW6ROYu0 referencia
     }
 }

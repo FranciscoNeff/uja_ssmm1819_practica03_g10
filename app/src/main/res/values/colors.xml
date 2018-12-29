@@ -7,5 +7,6 @@
     <color name="colormidgradient">#7c504eb6</color>
     <color name="rowbodyimpar">#2e0767a3</color>
     <color name="rowbodypar">#ad54bdff</color>
+    <color name="background_color_workout">#7379cbff</color>
     <color name="textrep">#0067a7</color>
 </resources>
