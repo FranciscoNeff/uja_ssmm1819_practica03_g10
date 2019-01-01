@@ -33,6 +33,6 @@
     <string name="Incorrect_Values">Valores de usuario incorrectos, inserte cualquiera</string>
     <string name="UserRegistred">Previamente registrado</string>
     <string name="title_activity_service">Power Corpore</string>
-    <string name="workout_toggle_off">Finalizar rutina</string>
-    <string name="workout_toggle_on">Comenzar rutina</string>
+    <string name="workout_toggle_on">Finalizar rutina</string>
+    <string name="workout_toggle_off">Comenzar rutina</string>
 </resources>

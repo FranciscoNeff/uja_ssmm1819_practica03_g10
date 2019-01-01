@@ -3,9 +3,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.Toolbar;
 
@@ -19,9 +21,11 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Table_workout extends AppCompatActivity  {
+public class Table_workout extends AppCompatActivity //implements CompoundButton.OnCheckedChangeListener
+         {
     private List<RutinaDTO> rutinalistcsv = new ArrayList<>();
     private TableLayout tableworkout =null;
+    ToggleButton  btnToggle;
 
     //TODO tabla dinamica para los ejercicios tag para el editor
    //TODO darle estilos a la tabla
@@ -29,21 +33,13 @@ public class Table_workout extends AppCompatActivity  {
     @Override
     public void onCreate (Bundle savedInstanteState){
         super.onCreate(savedInstanteState);
-        Toolbar toolbar = new Toolbar(this);
-        //toolbar.setId(R.id.toolbar_workout);
-        toolbar.setTitle(R.string.title_activity_workout);
-       final ToggleButton btnToggle = (ToggleButton) findViewById(R.id.workout_BtnToggle);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_workout);
+        setSupportActionBar(toolbar);
 
-       /* btnToggle.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View arg0)
-            {
-                if(btnToggle.isChecked())
-                    btnToggle.getTextOn();
 
-                else
-                    btnToggle.getTextOff();
-            }
-        });*/
+        btnToggle = (ToggleButton) findViewById(R.id.workout_BtnToggle);
+       // btnToggle.setOnCheckedChangeListener(this);
+
         setContentView(R.layout.layout_show_workouts);
         tableworkout = findViewById(R.id.tableworkout);
         tableworkout.setShrinkAllColumns(true);
@@ -111,4 +107,16 @@ public class Table_workout extends AppCompatActivity  {
 //TODO seria interesante en un futuro cambiar solo el tooglebutton con un cronometro ademas y un boton de pause
         //https://www.youtube.com/watch?v=GCrgW6ROYu0 referencia
     }
+    /*
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        long t_rutina=0;
+        if (btnToggle.isChecked())
+            if (btnToggle.getTextOn().equals(getString(R.string.workout_toggle_on))){
+            t_rutina=System.currentTimeMillis();}
+            else{
+            t_rutina=t_rutina-System.currentTimeMillis();
+            }
+    }*/
 }
