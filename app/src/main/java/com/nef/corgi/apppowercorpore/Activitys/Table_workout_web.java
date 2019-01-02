@@ -55,6 +55,7 @@ import java.util.List;
             RutinaDTO rutina = new RutinaDTO();
             GetRutinas gr = new GetRutinas(user);
             gr.execute((Runnable) rutina);
+            if(rutina != null){
             RutinaDTO.Ejercicio ejercicios = new RutinaDTO.Ejercicio();
             ejercicios=rutina.getListaEjercicios().get(1);
             final TableRow row_header = new TableRow(this);
@@ -107,6 +108,18 @@ import java.util.List;
                 tableworkout.addView(row_body);
                 row_body.setId(R.id.id_row_body);
             }
+            }else{
+                final TableRow row_header = new TableRow(this);
+                row_header.setId(R.id.id_row_header);
+                TextView headerview = new TextView(this);
+                String headertext = "Rutina no encontrada";
+                headerview.setText(headertext);
+                headerview.setTextColor(getColor(R.color.colorAccent));
+                headerview.setTextSize(22);
+                row_header.addView(headerview);
+                tableworkout.addView(row_header);
+            }
+
             ///////////////////////peticion web a las rutinas/////////////////////
             class GetRutinas extends AsyncTask<String,Void,RutinaDTO> {
                 private static final String HTTP_STATUS_OKCODE = "200";
@@ -130,45 +143,53 @@ import java.util.List;
                             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
                             String line;
                             while ((line = br.readLine()) != null) {
-                                csv=csv+line;
+                                csv = csv + line;
                             }
-                        }
-                        connection.disconnect();
-                        List<RutinaDTO.Ejercicio> ejerciciolistcsv = new ArrayList<>();
-                        String items[]=csv.split(DL);
-                        BufferedReader reader=null;
-                        String line="";
-                        String n_ejercicios="";//array con el nombre de los ejercicios
-                        ArrayList<Integer> series = new ArrayList<Integer>();//array de series
-                        ArrayList<String> repeticiones = new ArrayList<String>();//array de repeticiones
-                        RutinaDTO.Ejercicio ejercicio = new RutinaDTO.Ejercicio();
+                            connection.disconnect();
+                            List<RutinaDTO.Ejercicio> ejerciciolistcsv = new ArrayList<>();
+                            String items[] = csv.split(DL);
+                            BufferedReader reader = null;
 
-                        try{
-                            //Lectura
-                            n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
-                            while((line=reader.readLine())!=null)
-                                for(int i=1; i<items.length;i++){
-                                    try {
-                                        series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
-                                    } catch (NumberFormatException numberex) {
-                                        numberex.printStackTrace();
+                            String n_ejercicios = "";//array con el nombre de los ejercicios
+                            ArrayList<Integer> series = new ArrayList<Integer>();//array de series
+                            ArrayList<String> repeticiones = new ArrayList<String>();//array de repeticiones
+                            RutinaDTO.Ejercicio ejercicio = new RutinaDTO.Ejercicio();
+                            try {
+                                //Lectura
+                                n_ejercicios = items[0];//el nombre del ejercicio siempre es la primera casilla
+                                while ((line = reader.readLine()) != null)
+                                    for (int i = 1; i < items.length; i++) {
+                                        try {
+                                            series.add(Integer.parseInt(items[i]));//leo la serie en la que esta, es un numero
+                                        } catch (NumberFormatException numberex) {
+                                            numberex.printStackTrace();
+                                        }
+                                        i++;
+                                        repeticiones.add(items[i]);//esto es un string
                                     }
-                                    i++;
-                                    repeticiones.add(items[i]);//esto es un string
-                                }
-                            ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
-                            ejercicio.setSerie(series);//introduce el array de series //revisar porq introduce las series y repeticiones de todos
-                            ejercicio.setRepeticiones(repeticiones);//introduce el array de repeticiones
-                            ejerciciolistcsv.add(ejercicio);
-                            rutina.setListaEjercicios(ejerciciolistcsv);
-                        }catch (IOException e) {
+                                ejercicio.setNombreEjercicio(n_ejercicios);//introduce ejercicio
+                                ejercicio.setSerie(series);//introduce el array de series //revisar porq introduce las series y repeticiones de todos
+                                ejercicio.setRepeticiones(repeticiones);//introduce el array de repeticiones
+                                ejerciciolistcsv.add(ejercicio);
+                                rutina.setListaEjercicios(ejerciciolistcsv);
+                            } catch (IOException e) {
 
-                        }try {
-                            reader.close();
-                        }catch (IOException ioe){}
-                    }catch (IOException e){
+                            }
+                            try {
+                                reader.close();
+                            } catch (IOException ioe) {
+                            }
+                        }else{
+                            rutina = null;
+                        }
+                        }catch(IOException e){
 
-                    }
+                        }
+
+
+
+
+
                     return rutina;
                 }
             }
