@@ -67,7 +67,7 @@ Registros reg = new Registros();
         String s_user = intent.getStringExtra(PARAM_USER_NAME);
         String s_sid = intent.getStringExtra(PARAM_USER_SID);
         String s_expires= intent.getStringExtra(PARAM_USER_EXPIRED);
-
+        USERLOG.setUser_name(s_user);
         // AL menu lateral le pasamos el nombre del user
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.show_user_name);
@@ -127,8 +127,12 @@ envio.execute();
         if (id ==  R.id.nav_user) {
 //opcion para ver datos del usuario
         } else if (id == R.id.nav_work_out) {
-            Intent workout = new Intent(ServiceActivity.this,Table_workout.class);
+            Intent intent = getIntent();
+            Table_workout_web twb=new Table_workout_web(USERLOG.getUser_name());
+            Intent workout = new Intent(ServiceActivity.this,Table_workout_web.class);
             startActivity(workout);
+           // Intent workout = new Intent(ServiceActivity.this,Table_workout.class);
+           // startActivity(workout);
 //opcion para elegir las rutinas
         }else if (id == R.id.nav_result) {
 //opcion para ver los resultado las rutinas
