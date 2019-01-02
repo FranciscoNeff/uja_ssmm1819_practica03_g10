@@ -205,14 +205,6 @@ public class MainActivity extends AppCompatActivity implements Authetication.OnF
                 Date temp = (user.getExpires());
                 editor.putString("EXPIRES", FORMATO.format(temp));
                 editor.commit();
-pref.AddRegistro(user);//revisar por aqui el opcional//meter un boolean para indicar si el login ha sido bueno o malo//lo que pasa que si pasamos por aqui siempre van a ser buenos
-
-                /*
-                SharedPreferences def = getPreferences(MODE_PRIVATE); //crea un fichero con todos los usuarios
-                SharedPreferences.Editor edit2 = def.edit();
-                pref.saveCredentials(def,user);
-                edit2.putString("LAST_USER", user.getUser_name());
-                edit2.commit();*/
 
                 Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
                 intent.putExtra(ServiceActivity.PARAM_USER_NAME, user.getUser_name());

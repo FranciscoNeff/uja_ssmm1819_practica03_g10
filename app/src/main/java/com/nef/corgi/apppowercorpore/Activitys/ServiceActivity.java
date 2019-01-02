@@ -127,7 +127,7 @@ envio.execute();
         if (id ==  R.id.nav_user) {
 //opcion para ver datos del usuario
         } else if (id == R.id.nav_work_out) {
-            Intent intent = getIntent();
+
             Table_workout_web twb=new Table_workout_web(USERLOG.getUser_name());
             Intent workout = new Intent(ServiceActivity.this,Table_workout_web.class);
             startActivity(workout);
