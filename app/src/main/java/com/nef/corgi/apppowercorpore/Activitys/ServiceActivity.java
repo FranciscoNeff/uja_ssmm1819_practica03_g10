@@ -128,11 +128,11 @@ envio.execute();
 //opcion para ver datos del usuario
         } else if (id == R.id.nav_work_out) {
 
-//            Table_workout_web twb=new Table_workout_web(USERLOG.getUser_name());
-//            Intent workout = new Intent(ServiceActivity.this,Table_workout_web.class);
-//            startActivity(workout);
-            Intent workout = new Intent(ServiceActivity.this,Table_workout.class);
-            startActivity(workout);
+       //    Table_workout_web twb=new Table_workout_web(USERLOG.getUser_name());
+            Intent workout = new Intent(ServiceActivity.this,Table_workout_web.class);
+          startActivity(workout);
+         //   Intent workout = new Intent(ServiceActivity.this,Table_workout.class);
+          // startActivity(workout);
 //opcion para elegir las rutinas
         }else if (id == R.id.nav_result) {
 //opcion para ver los resultado las rutinas

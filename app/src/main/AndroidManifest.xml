@@ -23,13 +23,16 @@
         <activity android:name="com.nef.corgi.apppowercorpore.Activitys.MainActivity"/>
         <activity
             android:name=".Activitys.ServiceActivity"
-            android:label="@string/title_activity_service"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".Activitys.Table_workout"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
-    </application>
+    <activity android:name=".Activitys.Table_workout_web"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.NoActionBar"/>
+</application>
 
 
 </manifest>
