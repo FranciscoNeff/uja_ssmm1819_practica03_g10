@@ -15,10 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nef.corgi.apppowercorpore.Authetication;
-import com.nef.corgi.apppowercorpore.DTO.Preferences;
 import com.nef.corgi.apppowercorpore.DTO.UserDTO;
 import com.nef.corgi.apppowercorpore.R;
-import com.nef.corgi.apppowercorpore.Registros;
 import com.nef.corgi.apppowercorpore.StatusNetkwork;
 
 import java.io.BufferedReader;
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements Authetication.OnF
     public Context context;
     private StatusNetkwork networkStateReceiver;
     ConnectTask task = new ConnectTask();
-    Registros pref = new Registros();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

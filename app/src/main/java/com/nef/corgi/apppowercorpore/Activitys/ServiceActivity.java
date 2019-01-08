@@ -20,13 +20,10 @@ import com.nef.corgi.apppowercorpore.DTO.MonitorDTO;
 import com.nef.corgi.apppowercorpore.DTO.MonitorDTO.MalformedMonitorException;
 import com.nef.corgi.apppowercorpore.DTO.UserDTO;
 import com.nef.corgi.apppowercorpore.R;
-import com.nef.corgi.apppowercorpore.Registros;
 import com.nef.corgi.apppowercorpore.mensaje.Envio;
 
 import java.text.SimpleDateFormat;
 
-
-//Preguntar como quitar(en la barra de aplicacion)el ServiceActivity
 public class ServiceActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //Variables estaticas de control de usuario
     public static final String PARAM_USER_NAME="name";
@@ -35,8 +32,7 @@ public class ServiceActivity extends AppCompatActivity implements NavigationView
     public static final String PARAM_USER_EXPIRED="expires";
     public static final UserDTO USERLOG = new UserDTO();
     SimpleDateFormat FORMATO = new SimpleDateFormat("y-M-d-H-m-s");
-Registros reg = new Registros();
-    //String registros;//linea para el apartado opcional
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,14 +122,15 @@ envio.execute();
 
         if (id ==  R.id.nav_user) {
 //opcion para ver datos del usuario
-        } else if (id == R.id.nav_work_out) {
-
-       //    Table_workout_web twb=new Table_workout_web(USERLOG.getUser_name());
+        } else if (id == R.id.nav_work_out) { //opcion para elegir las rutinas
+//metodo para mostrar rutinas desde la web
             Intent workout = new Intent(ServiceActivity.this,Table_workout_web.class);
+            workout.putExtra("username",USERLOG.getUser_name());
           startActivity(workout);
+          //metodo para mostrar rutinas estaticas
          //   Intent workout = new Intent(ServiceActivity.this,Table_workout.class);
           // startActivity(workout);
-//opcion para elegir las rutinas
+
         }else if (id == R.id.nav_result) {
 //opcion para ver los resultado las rutinas
         } else if (id == R.id.nav_share) {
